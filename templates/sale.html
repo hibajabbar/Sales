@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Sales Performance Analysis</title>
+  <style>
+    /* Make the page fill the viewport with no scrollbars */
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      font-family: sans-serif;
+    }
+
+    /* Full-screen iframe */
+    #powerbi-frame {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    /* Overlay container for Full Screen button */
+    .controls {
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      background: rgba(255,255,255,0.85);
+      border-radius: 8px;
+      padding: 0.5rem 1rem;
+      display: flex;
+      align-items: center;
+      z-index: 10;
+    }
+
+    .controls button {
+      font-size: 1rem;
+      padding: 0.25rem 0.5rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      background: #fff;
+      cursor: pointer;
+    }
+
+    .controls button:hover {
+      background: #f0f0f0;
+    }
+  </style>
+</head>
+<body>
+
+
+
+  <iframe
+    id="powerbi-frame"
+    title="Sales Performance Analysis"
+    src="{{ embed_url }}"
+    allowfullscreen>
+  </iframe>
+
+  <script>
+    // Trigger browser full-screen mode on the document
+    function goFullScreen() {
+      const doc = document.documentElement;
+      if (doc.requestFullscreen) {
+        doc.requestFullscreen();
+      } else if (doc.webkitRequestFullscreen) {
+        doc.webkitRequestFullscreen();
+      } else if (doc.mozRequestFullScreen) {
+        doc.mozRequestFullScreen();
+      } else if (doc.msRequestFullscreen) {
+        doc.msRequestFullscreen();
+      }
+    }
+  </script>
+
+</body>
+</html>
